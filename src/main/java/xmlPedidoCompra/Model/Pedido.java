@@ -12,8 +12,11 @@ public class Pedido {
 
   @XmlElement(name = "CNPJ")
   private String cnpj;
+  
+  @XmlElement(name = "prod")
+  private List<Produto> produtos;
 
-  @XmlElement(name = "xNome")
+  /*@XmlElement(name = "xNome")
   private String nomeEmitente;
 
   @XmlElement(name = "cPed")
@@ -29,20 +32,17 @@ public class Pedido {
   private String observacao;
 
   @XmlElement(name = "xAgr")
-  private String indicadorAgrega;
-
-  @XmlElement(name = "prod")
-  private List<Produto> produtos;
-  
-  
-  
+  private String indicadorAgrega;*/
 
 
 public String getCnpj() {
 	return cnpj;
-}
-
-public String getNomeEmitente() {
+	}  
+  
+public List<Produto> getProdutos() {
+	return produtos;
+	}
+/*public String getNomeEmitente() {
 	return nomeEmitente;
 }
 
@@ -64,34 +64,50 @@ public String getObservacao() {
 
 public String getIndicadorAgrega() {
 	return indicadorAgrega;
+}*/
+
+public static class Produto {
+	
+  @XmlElement(name = "cEAN")
+  private String codigoEan;
+  
+  @XmlElement(name = "qPed")
+  private String quantidadePedida;
+
+  @XmlElement(name = "vUnit")
+  private String valorUnitario;
+  
+  public String getCodigoEan() {
+		return codigoEan;
+	}
+  
+  public String getQuantidadePedida() {
+		return quantidadePedida;
+	}
+  
+  public String getValorUnitario() {
+		return valorUnitario;
+	}
+
+@Override
+  public String toString() {
+		return "Produto [codigoEan=" + codigoEan + ", quantidadePedida=" + quantidadePedida + ", valorUnitario="
+			+ valorUnitario + "]";
 }
+  
+  
 
-public List<Produto> getProdutos() {
-	return produtos;
-}
-
-static class Produto {
-
-  @XmlElement(name = "cpe")
+  /*@XmlElement(name = "cpe")
   private String codigoProduto;
 
   @XmlElement(name = "xProd")
   private String descricaoProduto;
 
   @XmlElement(name = "prod_Cbc")
-  private ProdCbc informacaoCbc; // Renamed for clarity
-
-  @XmlElement(name = "qPed")
-  private double quantidadePedida;
-
-  @XmlElement(name = "vUnit")
-  private double valorUnitario;
+  private ProdCbc informacaoCbc; 
 
   @XmlElement(name = "xPed") // Renamed to avoid conflict with 'xObs'
   private String observacaoProduto;
-
-  @XmlElement(name = "cEAN")
-  private String codigoEan;
   
   @XmlElement(name = "vUnitBru")
   private double valorUnitarioBruto;
@@ -111,20 +127,8 @@ public ProdCbc getInformacaoCbc() {
 	return informacaoCbc;
 }
 
-public double getQuantidadePedida() {
-	return quantidadePedida;
-}
-
-public double getValorUnitario() {
-	return valorUnitario;
-}
-
 public String getObservacaoProduto() {
 	return observacaoProduto;
-}
-
-public String getCodigoEan() {
-	return codigoEan;
 }
 
 public double getValorUnitarioBruto() {
@@ -133,7 +137,7 @@ public double getValorUnitarioBruto() {
 
 public double getValorMargemLucro() {
 	return valorMargemLucro;
-}
+}*/
 
   
   
@@ -148,13 +152,12 @@ static class ProdCbc {
 	  
 	  
 }
-
 @Override
 public String toString() {
-	return "Pedido [cnpj=" + cnpj + ", nomeEmitente=" + nomeEmitente + ", codigoPedido=" + codigoPedido
-			+ ", dataEmissao=" + dataEmissao + ", codigoPagamento=" + codigoPagamento + ", observacao=" + observacao
-			+ ", indicadorAgrega=" + indicadorAgrega + ", produtos=" + produtos + "]";
+	return "Pedido [cnpj=" + cnpj + ", produtos=" + produtos + "]";
 }
+
+
 }
 
 

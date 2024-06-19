@@ -1,14 +1,5 @@
 package xmlPedidoCompra.Model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-
-import xmlPedidoCompra.Util.Conexao;
 
 public class Loja {
 	private int id;
@@ -40,6 +31,6 @@ public class Loja {
 
     @Override
     public String toString() {
-        return description; // Display store description in the JComboBox
+        return description; // Mostra descricao da loja no jcombobox
     }
 }
